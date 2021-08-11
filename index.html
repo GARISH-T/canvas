@@ -12,20 +12,27 @@
 <body>
     <div id="canvas"></div>
     <script>
-        canvas.onclick = (e) => {
+        // 当鼠标移动
+        canvas.onmousemove = (e) => {
             console.log(e.clientX)
             console.log(e.clientY)
             // console.log调试大法
+            // 让文档创建一个标签（默认在内存里面，需要appendChild才会显示在页面上）
             let div = document.createElement('div')
+            // 让div里面的内联元素样式是absolute绝对定位
             div.style.position = 'absolute'
             div.style.left = e.clientX + 'px'
             div.style.top = e.clientY + 'px'
+            div.style.border = '1px solid red'
+            // div的宽高
             div.style.width = '6px'
             div.style.height = '6px'
+            // 画圆，且鼠标落点指向圆的中心
             div.style.marginLeft = '-3px'
             div.style.marginTop = '-3px'
             div.style.borderRadius = '50%'
             div.style.backgroundColor = 'black'
+            // （让div出现在页面上）appendChild添加一个孩子div
             canvas.appendChild(div)
         }
     </script>
