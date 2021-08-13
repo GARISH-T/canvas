@@ -23,6 +23,8 @@
 
         // 填充样式是蓝色
         ctx.fillStyle = "blue";
+        // 笔（边框）样式
+        ctx.strokeStyle = 'blue'
 
         // 当鼠标按下painting变为true
         canvas.onmousedown = () => {
@@ -31,7 +33,12 @@
         canvas.onmousemove = (e) => {
             if (painting === true) {
                 // 填充矩形（x轴，y轴，宽，高）
-                ctx.fillRect(e.clientX - 5, e.clientY - 5, 10, 10);
+                // ctx.fillRect(e.clientX - 5, e.clientY - 5, 10, 10)e.clientX - 5, e.clientY - 5, 10, 10);
+                // 充填圆形
+                ctx.beginPath();
+                ctx.arc(e.clientX, e.clientY, 10, 0, 2 * Math.PI);
+                ctx.stroke();
+                ctx.fill();
             } else {
                 console, log('nothing to do')
             }
